@@ -1,30 +1,25 @@
 package com.example.est_spring;
 
-import org.springframework.beans.factory.annotation.Value;
+
+import com.example.day0709.Message;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.servlet.DispatcherServlet;
 
-@SpringBootApplication
+
+@SpringBootApplication(
+        scanBasePackages = "com.example.day0709")
 public class EstSpringApplication {
-    @Value("${kakao.api.key}")
-    private String name;
 
+    @Autowired
+    @Qualifier("sendMessage")
+    Message message;
     public static void main(String[] args) {
-        UserRepositoryInterface userRepository = new UserRepository();
-
 
         SpringApplication.run(EstSpringApplication.class, args);
 
-        /*UserRepositoryInterface userRepository = new UserRepository();
-        UserRepositoryInterface userRepository2 = new UserRepository2();
-
-        UserService userService = new UserService(userRepository);
-        UserService userService1 = new UserService(userRepository2);
-
-        userService.createUser(new User());
-        userService1.createUser(new User());
-
-        SpringApplication.run(EstSpringApplication.class, args);*/
     }
 
 }
