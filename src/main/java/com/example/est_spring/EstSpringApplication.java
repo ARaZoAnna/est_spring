@@ -15,7 +15,7 @@ import java.util.TimeZone;
 
 
 @SpringBootApplication(
-        scanBasePackages = "com.example.day0709")
+        scanBasePackages = "com.example.day0716_restapi")
 public class EstSpringApplication {
 
     @Value("${server.port}")
